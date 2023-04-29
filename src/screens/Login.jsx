@@ -89,7 +89,7 @@ export default function Login({ navigation }) {
         </View>
       </View>
 
-      <View style={{ top: windowHeight / 2.7 }} className="flex flex-col">
+      <View style={{ top: windowHeight / 5 }} className="flex flex-col">
         <Text
           style={{ fontFamily: "Signika_700Bold" }}
           className="self-center text-[40px] text-white "

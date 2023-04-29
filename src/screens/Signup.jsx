@@ -18,7 +18,7 @@ import {
 } from "@expo-google-fonts/signika";
 
 const windowWidth = Dimensions.get("screen").width;
-const windowHeight = Dimensions.get("screen").height;
+const windowHeight = Dimensions.get("window").height;
 
 export default function Signup({ navigation }) {
   const [SignikaLoaded] = useFonts({
@@ -32,84 +32,93 @@ export default function Signup({ navigation }) {
   return (
     <>
       <Background />
-      <KeyboardAwareScrollView
-        //extraScrollHeight={100}
-        //enableOnAndroid={true}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-        scrollEnabled={false}
-      >
-        <SafeAreaView
-          className="flex-1 items-center justify-center"
-          style={{ height: windowHeight, width: windowWidth }}
-        >
-          <View className=" bg-white w-[80%] self-center rounded-2xl my-auto">
-            <Text
-              style={{
-                fontFamily: "Signika_600SemiBold",
-                fontSize: 40,
-                marginLeft: "5%",
-                marginTop: "2%",
-                marginBottom: "5%",
-              }}
-            >
-              Sign Up
-            </Text>
-            <View className="0 w-[90%] mx-auto">
-              <Textfield
-                textInputName="First Name"
-                placeholder1="Enter your First name"
-                ErrorMessage=""
-              />
-              <Textfield
-                textInputName="Last Name"
-                placeholder1="Enter your Last name"
-                ErrorMessage=""
-              />
-              <Textfield
-                textInputName="Email"
-                placeholder1="Enter your email"
-                ErrorMessage=""
-              />
-              <Textfield
-                textInputName="Password"
-                placeholder1="Enter your password"
-                ErrorMessage=""
-                ifPassword={true}
-              />
-              <Textfield
-                textInputName="Re-enter Password"
-                placeholder1="Re-enter your password"
-                ErrorMessage=""
-                ifPassword={true}
-              />
-            </View>
 
-            <View className="flex flex-row mt-4 self-end mr-4 mb-5">
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Login");
-                }}
-                className="w-[115px] bg-black h-[37px] justify-center mx-2 rounded-lg"
+      <SafeAreaView
+        className="absolute items-center justify-center"
+        style={{ height: windowHeight, width: windowWidth }}
+      >
+        <View className=" bg-white w-[80%] h-[550px] rounded-2xl ">
+          <Text
+            style={{
+              fontFamily: "Signika_600SemiBold",
+              fontSize: 40,
+              marginLeft: "5%",
+              marginTop: "2%",
+              marginBottom: "5%",
+            }}
+          >
+            Sign Up
+          </Text>
+          <View className="bg-red-300 w-full h-[74%]">
+            <View className="bg-green-300 w-full h-[100%]">
+              <KeyboardAwareScrollView
+                //extraScrollHeight={10}
+                //extraHeight={1130}
+                enableOnAndroid={true}
+                keyboardShouldPersistTaps="handled"
+                showsVerticalScrollIndicator={false}
+                scrollEnabled={true}
+                style={{ height: "70%" }}
               >
-                <Text className="text-white font-[450] mx-auto text-[25px]">
-                  Back
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Verification");
-                }}
-                className="w-[100px] bg-[#5D5ADD] h-[37px] justify-center rounded-lg"
-              >
-                <Text className="text-white font-[450] mx-auto text-[25px]">
-                  Sign up
-                </Text>
-              </TouchableOpacity>
+                <Textfield
+                  textInputName="First Name"
+                  placeholder1="Enter your First name"
+                  ErrorMessage=""
+                />
+                <Textfield
+                  textInputName="Last Name"
+                  placeholder1="Enter your Last name"
+                  ErrorMessage=""
+                />
+                <Textfield
+                  textInputName="Birthdate"
+                  placeholder1="Enter your Birthdate"
+                  ErrorMessage=""
+                />
+                <Textfield
+                  textInputName="Gender"
+                  placeholder1="Enter your Gender"
+                  ErrorMessage=""
+                />
+                <Textfield
+                  textInputName="Email"
+                  placeholder1="Enter your email"
+                  ErrorMessage=""
+                />
+                <Textfield
+                  textInputName="Password"
+                  placeholder1="Enter your password"
+                  ErrorMessage=""
+                  ifPassword={true}
+                />
+              </KeyboardAwareScrollView>
             </View>
           </View>
-        </SafeAreaView>
-      </KeyboardAwareScrollView>
+          <View className="flex flex-row mt-4 self-end mr-4 mb-5">
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Login");
+              }}
+              className="w-[115px] bg-black h-[37px] justify-center mx-2 rounded-lg"
+            >
+              <Text className="text-white font-[450] mx-auto text-[25px]">
+                Back
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Verification");
+              }}
+              className="w-[100px] bg-[#5D5ADD] h-[37px] justify-center rounded-lg"
+            >
+              <Text className="text-white font-[450] mx-auto text-[25px]">
+                Sign up
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </SafeAreaView>
+      {/* </KeyboardAwareScrollView> */}
       <View
         style={{ position: "absolute", top: windowHeight / 1.22 }}
         className="flex flex-col  w-full"
